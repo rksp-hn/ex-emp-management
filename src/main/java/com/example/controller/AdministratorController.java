@@ -8,6 +8,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.domain.Administrator;
 import com.example.form.InsertAdministratorForm;
+import com.example.form.LoginForm;
 import com.example.service.AdministratorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -43,6 +44,12 @@ public class AdministratorController {
 
         // ・「/」(ログイン画⾯)にリダイレクトする
         return "redirect:/";
+    }
+
+    @GetMapping("/")
+    // 「administrator/login.html」にフォワードする処理
+    public String toLogin(LoginForm form){
+        return ("administrator/login");
     }
     
 }
