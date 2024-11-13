@@ -36,17 +36,9 @@ public class AdministratorController {
     }
     @PostMapping("/insert")
     public String insert(InsertAdministratorForm form){
-
-        // ・Administrator ドメインをインスタンス化する
         Administrator administrator = new Administrator();
-
-        // ・リクエストパラメータが⼊っているInsertAdministratorForm オブジェクトの中⾝を今インスタンス化した Administrator ドメインオブジェクトにコピーする
         BeanUtils.copyProperties(form, administrator);
-
-        // ・administratorService の insert()メソッドを呼ぶ
         administratorService.insert(administrator);
-
-        // ・「/」(ログイン画⾯)にリダイレクトする
         return "redirect:/";
     }
 
@@ -55,7 +47,6 @@ public class AdministratorController {
     public String toLogin(LoginForm form){
         return "administrator/login";
     }
-
     @Autowired
     private HttpSession session;
 
