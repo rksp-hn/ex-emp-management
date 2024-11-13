@@ -39,7 +39,9 @@
           <!-- 背景をグレーに、埋め込んだようなコンポーネント -->
           <div class="well">
             <!-- ここから上を編集する必要はありません -->
-
+            <div th:if="${errorMessage}">
+              <p th:text="${errorMessage}"></p>
+            </div>
             <!-- ここにモックのform要素を貼り付けます -->
             <form method="post" action="../employee/list.html" th:action="@{/login}" th:object="${loginForm}">
               <fieldset>
