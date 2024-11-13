@@ -22,4 +22,11 @@ public class EmployeeService {
             List<Employee> employee = employeeRepository.findAll();
             return employee;
     }
+    /* 従業員情報を取得する。
+employeeRepositoryのload()メソッドを呼ぶ処理を記述する。
+戻ってきた従業員情報をそのまま呼び出し元に返す。 */
+    public Employee showDetail(Integer id){
+        Employee employee = employeeRepository.load(id);
+        return employee;
+    }
 }
