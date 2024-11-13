@@ -44,7 +44,7 @@ public class EmployeeRepository {
     /*主キーから従業員情報を取得する(従業員が存在しない場合は Spring が⾃動的に例外を発⽣します)。 */
     public Employee load(Integer id){
         String sql = "SELECT id,name,image,gender,hire_date,mail_address,zip_code,address,telephone,salary,characteristics,dependents_count FROM employees WHERE id=:id";
-        SqlParameterSource param = new MapSqlParameterSource().addValue("sql", sql) ;
+        SqlParameterSource param = new MapSqlParameterSource().addValue("id", id) ;
         Employee employee = template.queryForObject(sql, param, EMPLOYEE_ROW_MAPPER);
         return employee;
     }
